@@ -1,0 +1,27 @@
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+__pycache__
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+venv
+app.db
+
+#my
+flaskstep
