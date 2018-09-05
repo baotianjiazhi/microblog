@@ -5,7 +5,9 @@ Thank you
 __author__ = 'Baobaobao123'
 
 import os
+
 basedir = os.path.abspath(os.path.dirname(__file__))
+
 
 class Config(object):
     SECRET_KEY = '45ecde8ffff745ccb9ce1eb8499bc70e'
@@ -17,4 +19,5 @@ class Config(object):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['18271313853@163.com']
+    LANGUAGES = ['zh', 'en']
     POSTS_PER_PAGE = 25

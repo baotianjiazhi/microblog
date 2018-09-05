@@ -6,7 +6,7 @@ from app.models import User, Post
 
 __author__ = 'Baobaobao123'
 
-from app import app, db
+from app import app, db, cli
 
 
 @app.shell_context_processor

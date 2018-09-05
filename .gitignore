@@ -26,3 +26,5 @@ app.db
 #my
 jilu.txt
 .flaskenv
+logs
+messages.pot
