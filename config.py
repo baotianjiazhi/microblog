@@ -22,3 +22,4 @@ class Config(object):
     ADMINS = ['18271313853@163.com']
     LANGUAGES = ['zh', 'en']
     POSTS_PER_PAGE = 25
+
