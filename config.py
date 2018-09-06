@@ -5,9 +5,10 @@ Thank you
 __author__ = 'Baobaobao123'
 
 import os
+from dotenv import load_dotenv
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-
+load_dotenv(os.path.join(basedir, '.flaskenv'))
 
 class Config(object):
     SECRET_KEY = '45ecde8ffff745ccb9ce1eb8499bc70e'

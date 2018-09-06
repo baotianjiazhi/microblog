@@ -8,7 +8,7 @@ from time import time
 import jwt
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-from app import login, app
+from app import login
 from app import db
 
 __author__ = 'Baobaobao123'
@@ -84,12 +84,15 @@ class User(UserMixin, db.Model):
         except:
             return
         return User.query.get(id)
+
+
 class Post(db.Model):
     __tablenname__ = 'post'
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.datetime.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    language = db.Column(db.String(5))
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
