@@ -4,6 +4,7 @@ import os
 from flask import Flask, request, current_app
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_ckeditor import CKEditor
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_bootstrap import Bootstrap
@@ -20,6 +21,7 @@ mail = Mail()
 bootstrap = Bootstrap()
 moment = Moment()
 babel = Babel()
+ckeitor = CKEditor()
 
 
 def create_app(config_class=Config):
@@ -33,6 +35,7 @@ def create_app(config_class=Config):
     bootstrap.init_app(app)
     moment.init_app(app)
     babel.init_app(app)
+    ckeitor.init_app(app)
 
     from app.errors import bp as errors_bp
     app.register_blueprint(errors_bp)

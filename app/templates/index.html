@@ -4,7 +4,13 @@
 {% block app_content %}
     <h1>{{ _('Hi, %(username)s!', username=current_user.username) }}</h1>
     {% if form %}
-    {{ wtf.quick_form(form) }}
+        <form method="post">
+            {{ form.hidden_tag()}}
+            {{ form.post.label }}{{ form.post() }}
+            {{ form.submit() }}
+        </form>
+        {{ ckeditor.load() }}
+        {{ ckeditor.config(name='body') }}
     <br>
     {% endif %}
     {% for post in posts %}
@@ -24,4 +30,8 @@
             </li>
         </ul>
     </nav>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='ckeditor/ckeditor.js') }}"></script>
 {% endblock %}

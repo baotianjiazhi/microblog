@@ -28,3 +28,4 @@ jilu.txt
 .flaskenv
 logs
 messages.pot
+test.py

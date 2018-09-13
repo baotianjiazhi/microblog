@@ -2,6 +2,8 @@
 Created by Baobaobao123
 Thank you 
 """
+from flask_ckeditor import CKEditorField
+
 __author__ = 'Baobaobao123'
 from flask import request
 from flask_wtf import FlaskForm
@@ -31,10 +33,12 @@ class EditProfileForm(FlaskForm):
 
 
 class PostForm(FlaskForm):
-    post = TextAreaField(label=_l('Say something'), validators=[
-        DataRequired(), Length(min=1, max=140)
-    ])
-    submit = SubmitField(_l('Submit'))
+    post = CKEditorField(_('Post'))
+    submit = SubmitField(_l('Submit'),
+                         render_kw={
+                             "class": "btn btn-lg btn-success btn-block",
+                             "style": "width: 80px;padding"
+                        },)
 
 
 class MessageForm(FlaskForm):
