@@ -19,16 +19,16 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('main.index') }}">{{ _('Home') }}</a></li>
-                    <li><a href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a></li>
+                    <li><a href="{{ url_for('main.index') }}">{{ _('主页') }}</a></li>
+                    <li><a href="{{ url_for('main.explore') }}">{{ _('个人留言') }}</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if current_user.is_anonymous %}
-                        <li><a href="{{ url_for('auth.login') }}">{{ _('Login') }}</a></li>
+                        <li><a href="{{ url_for('auth.login') }}">{{ _('登陆') }}</a></li>
                     {% else %}
                         <li>
                             <a href="{{ url_for('main.messages') }}">
-                                {{ _('Messages') }}
+                                {{ _('私人消息') }}
                                 {% set new_messages = current_user.new_message() %}
                                 <span id="message_count" class="badge"
                                       style="visibility: {% if new_messages %}visible
@@ -37,9 +37,9 @@
                             </span>
                             </a>
                         </li>
-                        <li><a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('Profile') }}</a>
+                        <li><a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('个人信息') }}</a>
                         </li>
-                        <li><a href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a></li>
+                        <li><a href="{{ url_for('auth.logout') }}">{{ _('退出') }}</a></li>
                     {% endif %}
                 </ul>
             </div>
