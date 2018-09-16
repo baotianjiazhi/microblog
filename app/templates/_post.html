@@ -13,16 +13,10 @@
                     </a>
                 </span>
             {% endset %}
-            {{ _('%(username)s said %(when)s',
+            {{ _('%(username)s says： %(when)s',
                     username=user_link, when=moment(post.timestamp).fromNow()) }}
             <br>
             {{ post.body|safe }}
-            {% if post.language and post.language != g.locale %}
-                <br><br>
-                <div class="pull-right">
-                    <a href="#">{{ _('Translate') }}</a>
-                </div>
-            {% endif %}
         </td>
     </tr>
 </table>

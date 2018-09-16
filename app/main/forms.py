@@ -29,7 +29,7 @@ class EditProfileForm(FlaskForm):
         if username.data != self.original_username:
             user = User.query.filter_by(username=self.username.data).first()
             if user is not None:
-                raise ValidationError('Please use a different username')
+                raise ValidationError('请使用不同的用户名')
 
 
 class PostForm(FlaskForm):
@@ -37,7 +37,6 @@ class PostForm(FlaskForm):
     submit = SubmitField(_l('Submit'),
                          render_kw={
                              "class": "btn btn-lg btn-success btn-block",
-                             "style": "width: 80px;padding"
                         },)
 
 
