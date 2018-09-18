@@ -82,6 +82,17 @@ def user(username):
                            next_url=next_url, prev_url=prev_url)
 
 
+# 删除消息
+@bp.route('/delete/<int:id>', methods=['GET'])
+@login_required
+def del_post(id=None):
+    post = Post.query.filter_by(id=id).first_or_404()
+    db.session.delete(post)
+    db.session.commit()
+    flash('删除留言成功')
+    return redirect(url_for('main.user', username=current_user.username))
+
+
 # 编辑个人信息
 @bp.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
@@ -150,7 +161,7 @@ def send_message(recipient):
     form = MessageForm()
     if form.validate_on_submit():
         msg = Message(author=current_user, recipient=user,
-                          body=form.message.data)
+                      body=form.message.data)
         db.session.add(msg)
         db.session.commit()
         flash(_('Your message has been sent.'))

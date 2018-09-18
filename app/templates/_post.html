@@ -17,6 +17,12 @@
                     username=user_link, when=moment(post.timestamp).fromNow()) }}
             <br>
             {{ post.body|safe }}
+            {% if user == current_user %}
+                <a href="{{ url_for('main.del_post', id=post.id) }}">
+                    <div id="del_btn" class="btn btn-danger" style="margin-bottom: 10px; float:right" onclick="return confirm('确定要删除吗?')">
+                        delete</div>
+                </a>
+            {% endif %}
         </td>
     </tr>
 </table>
