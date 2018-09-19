@@ -41,6 +41,8 @@ class PostForm(FlaskForm):
 
 
 class MessageForm(FlaskForm):
-    message = TextAreaField(_l('Message'), validators=[
+    message = CKEditorField(_l('Message'), validators=[
         DataRequired(), Length(min=0, max=140)])
-    submit = SubmitField(_l('Submit'))
+    submit = SubmitField(_l('Submit'), render_kw={
+        "style": "float: right;margin-top: 10px",
+    })

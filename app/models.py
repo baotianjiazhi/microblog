@@ -22,7 +22,7 @@ followers = db.Table(
     db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
 )
 
-
+# 用户模型
 class User(UserMixin, db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
@@ -54,7 +54,7 @@ class User(UserMixin, db.Model):
         self.password_hash = generate_password_hash(password)
 
     def check_password(self, password):
-        """验证秘密"""
+        """验证密码"""
         return check_password_hash(self.password_hash, password)
 
     def avatar(self, size):

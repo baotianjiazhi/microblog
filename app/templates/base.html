@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url_for('main.index') }}">{{ _('主页') }}</a></li>
-                    <li><a href="{{ url_for('main.explore') }}">{{ _('个人留言') }}</a></li>
+                    <li><a href="{{ url_for('main.explore') }}">{{ _('留言') }}</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if current_user.is_anonymous %}
@@ -58,9 +58,7 @@
         {% endwith %}
 
         {# application content needs to be provided in the app_content block #}
-    <div class="col-md-8 col-md-offset-4">
         {% block app_content %}{% endblock %}
-    </div>
 {% endblock %}
 
 {% block scripts %}
