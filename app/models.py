@@ -22,6 +22,7 @@ followers = db.Table(
     db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
 )
 
+
 # 用户模型
 class User(UserMixin, db.Model):
     __tablename__ = 'user'
@@ -128,6 +129,7 @@ def login_user(id):
 
 
 class Message(db.Model):
+    __tablenname__ = 'message'
     id = db.Column(db.Integer, primary_key=True)
     sender_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     recipient_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -139,6 +141,7 @@ class Message(db.Model):
 
 
 class Notification(db.Model):
+    __tablenname__ = 'message'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128), index=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -147,3 +150,41 @@ class Notification(db.Model):
 
     def get_data(self):
         return json.loads(str(self.payload_json))
+
+
+class Fiction(db.Model):
+    __tablenname__ = 'fiction'
+    id = db.Column(db.Integer, primary_key=True)
+    fiction_name = db.Column(db.String(128))
+    fiction_auth = db.Column(db.String(64))
+    fiction_real_url = db.Column(db.String(140))
+    fiction_id = db.Column(db.String(100))
+    fiction_img = db.Column(db.String(140))
+    fiction_comment = db.Column(db.String(140))
+    update = db.Column(db.String(400))
+    new_content = db.Column(db.String(1024))
+    new_url = db.Column(db.String(1024))
+
+    def __repr__(self):
+        return '<fiction {}>'.format(self.fiction_name)
+
+
+class Fiction_List(db.Model):
+    __tablename__ = 'fiction_list'
+    id = db.Column(db.Integer, primary_key=True)
+    fiction_name = db.Column(db.String(255))
+    fiction_id = db.Column(db.String(255))
+    fiction_lst_url = db.Column(db.String(255))
+    fiction_lst_name = db.Column(db.String(255))
+    fiction_real_url = db.Column(db.String(255))
+
+    def __repr__(self):
+        return '<fiction_list {}>'.format(self.fiction_name)
+
+
+class Fiction_Content(db.Model):
+    __tablename__ = 'fiction_content'
+    id = db.Column(db.Integer, primary_key=True)
+    fiction_url = db.Column(db.String(255))
+    fiction_content = db.Column(db.Text)
+    fiction_id = db.Column(db.Integer)

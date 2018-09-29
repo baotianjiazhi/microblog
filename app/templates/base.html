@@ -39,6 +39,8 @@
                         </li>
                         <li><a href="{{ url_for('main.user', username=current_user.username) }}">{{ _('个人信息') }}</a>
                         </li>
+                        <li><a href="{{ url_for('fiction.book_index') }}">{{ _('小说') }}</a>
+                        </li>
                         <li><a href="{{ url_for('auth.logout') }}">{{ _('退出') }}</a></li>
                     {% endif %}
                 </ul>
