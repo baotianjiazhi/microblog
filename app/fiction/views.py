@@ -4,6 +4,7 @@ from app import db
 from app.models import Fiction
 from . import bp as fiction
 
+
 @fiction.route('/book')
 def book_index():
     fictions = Fiction().query.all()

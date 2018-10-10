@@ -55,7 +55,7 @@ body{
 		  <h1>404</h1>
 		  <p>Page not Found</p>
 		   <div class="sub">
-		     <p><a href="{% url 'home' %}">Go Back to Home</a></p>
+		     <p><a href="{{ url_for('main.index') }} ">Go Back to Home</a></p>
 		    </div>
 		</div>
 	</div>
